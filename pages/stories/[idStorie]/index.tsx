@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import md5 from "md5";
-
-
+import md5 from 'md5';
 import { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -9,10 +6,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const hash = md5(time + `${process.env.REACT_APP_MARVEL_PRIVATE_KEY}` + `${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`);
 
   const response = await fetch(
-      `https://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}&hash=${hash}`
+    `http://gateway.marvel.com/v1/public/stories/${context.params.idStorie}?ts=${time}&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}&hash=${hash}`
     )
       .then((data) => data.json())
-      .then((response) => response.data.results);
+    .then((response) => response.data.results);
+
   return {
     props: {
       data: response
@@ -21,11 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 
-export default function Characters({data}) {
-
-
-console.log(data)
-
+export default function StorieDetails({ data }): JSX.Element {
+  console.log(data)
   return <></>;
 }
-
