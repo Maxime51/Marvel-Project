@@ -4,17 +4,24 @@ html {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: rgb(26, 29, 41);
+}
+main {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 0;
+  overflow-x: hidden;
+
+  position: relative;
 }
 .eSugxu {
+  height: 100%;
   position: fixed;
   inset: 0px 0px -1px;
   z-index: -2;
-  transition: opacity 1000ms ease 0s;
-  width: 100%;
 }
 .hOoPkr {
   left: 0px;
+  opacity: 0;
   position: fixed;
   right: 0px;
   top: 0px;
@@ -32,10 +39,7 @@ html {
   position: absolute;
   inset: 0px;
 }
-
-.ToGo {
-  position: absolute;
+.BlockLink {
   width: 100%;
   height: 100%;
-  padding-left: 10rem;
 }
