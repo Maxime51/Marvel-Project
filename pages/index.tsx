@@ -24,7 +24,7 @@ export default function Home() {
         ></img>
 
         <div className="jUmrjg">
-          <Link href="/OtherRoute">
+          <Link href="1">
             <a className="ToGo"></a>
           </Link>
         </div>
