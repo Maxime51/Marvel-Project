@@ -1,25 +1,22 @@
-html {
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-main {
-  display: block;
-  flex-grow: 1;
-  flex-shrink: 0;
-  overflow-x: hidden;
 
-  position: relative;
-}
-.eSugxu {
+video {
   height: 100%;
+  width: 100%;
+}
+.blockvideo {
+  height: 100%;
+  width: 100%;
   position: fixed;
   inset: 0px 0px -1px;
   z-index: -2;
+  object-fit: cover;
 }
-.hOoPkr {
+.imageaftervideo {
   left: 0px;
   opacity: 0;
   position: fixed;
@@ -29,7 +26,7 @@ main {
   width: 100%;
   z-index: -1;
 }
-.jUmrjg {
+.fondvideo {
   background-image: linear-gradient(
     transparent 25%,
     transparent 50%,
@@ -39,7 +36,54 @@ main {
   position: absolute;
   inset: 0px;
 }
+
 .BlockLink {
   width: 100%;
   height: 100%;
+}
+.container a img {
+  width: 10rem;
+  height: 4rem;
+}
+.fakenav {
+  background-color: #333;
+  height: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.fakenav img {
+  width: 8rem;
+  height: 4rem;
+}
+.navbar {
+  padding-bottom: 10rem;
+  background-color: #333;
+  width: 8rem;
+  height: 50rem;
+  text-decoration: none;
+}
+.navbar a {
+  background-size: auto;
+  line-height: 5rem;
+  color: white;
+}
+.navbar a:hover {
+  padding-left: 0.2rem;
+  padding-right: 0.1rem;
+  margin-right: O.5rem;
+  box-shadow: 10px 5px 5px white;
+  color: white;
+  background-size: 8rem;
+}
+.col-2 {
+  padding-left: 0;
+}
+.col-6 {
+  padding-left: 4rem;
+}
+.CharactersContent img {
+  width: 10rem;
+  height: 10rem;
 }
