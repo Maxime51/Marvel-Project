@@ -1,16 +1,13 @@
 import md5 from 'md5';
 import { GetServerSideProps } from 'next'
+import Layout from '../../../components/Layout';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const time = Number(new Date());
-  const hash = md5(time + `${process.env.REACT_APP_MARVEL_PRIVATE_KEY}` + `${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`);
 
   const response = await fetch(
-    `http://gateway.marvel.com/v1/public/characters/${context.params.idCharacter}?ts=${time}&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}&hash=${hash}`
-    )
-      .then((data) => data.json())
-    .then((response) => response.data.results);
-
+    `http://localhost:3000/api/call/detail/${context.params.idCharacter}?rubrique=characters`
+  ).then((response)=>response.json())
+  .then((result)=> result.data)
   return {
     props: {
       data: response
@@ -19,7 +16,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 
-export default function CharacterDetails({ data }): JSX.Element {
+export default function CharacterDetails({data}): JSX.Element {
   console.log(data)
-  return <></>;
+  return <Layout>
+    <div className='container'>
+
+
+
+    </div>
+  </Layout>;
 }

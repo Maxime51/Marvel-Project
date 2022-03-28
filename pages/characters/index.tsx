@@ -23,7 +23,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-
 export default function Characters({data,pageSelected}) {
   return <>
     <Link href={`/characters?page=${pageSelected - 1}`}><a> Back </a></Link>
@@ -31,7 +30,7 @@ export default function Characters({data,pageSelected}) {
     <div className="container-fluid">
       <div className="row">
       {data.data.map((character) => {
-        return <CardCharactersPage key={character.id} imgCard={`${character.thumbnail.path}`} nameCard={character.name} />
+        return <CardCharactersPage key={character.id} idCharacter={`${character.id}`} imgCard={`${character.thumbnail.path}`} nameCard={character.name} />
       })}
       </div>
     </div>
