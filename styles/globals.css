@@ -46,7 +46,7 @@ video {
   height: 4rem;
 }
 .fakenav {
-  background-color: #333;
+  background-color: rgb(26, 29, 41);
   height: 3.5rem;
   display: flex;
   flex-direction: row;
@@ -59,7 +59,7 @@ video {
 }
 .navbar {
   padding-bottom: 10rem;
-  background-color: #333;
+  background-color: rgb(26, 29, 41);
   width: 8rem;
   height: 50rem;
   text-decoration: none;
