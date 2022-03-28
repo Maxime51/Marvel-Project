@@ -19,10 +19,32 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 export default function CharacterDetails({data}): JSX.Element {
   console.log(data)
   return <Layout>
-    <div className='container'>
+    <div className='container-fluid'>
+    <section>
 
+        <div className='row' style={{width: "100%",height:"30rem",alignContent:"center"}}>
+          <div className='col-3 mx-auto' >
+            <img style={{width: "400px"}} src={`${data[0].thumbnail.path}.jpg`}/>
+          </div>
+           <div className='col-4 mx-auto'>
+            <h1>{data[0].name}</h1><br></br>
+          </div>
+        </div>
 
+    </section>
+    <br></br>
+    <section>
+      <h2>Comics :</h2>
+        <div className='row' style={{width: "100%",height:"30rem",alignContent:"center"}}>
+          <div className='col-3 mx-auto' >
+            <img style={{width: "400px"}} src={`${data[0].thumbnail.path}.jpg`}/>
+          </div>
+           <div className='col-4 mx-auto'>
+            <h1>{data[0].name}</h1><br></br>
+          </div>
+        </div>
 
+    </section>
     </div>
   </Layout>;
 }
