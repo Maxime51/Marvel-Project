@@ -90,7 +90,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <div className="fakenav">
-        <Link href="/">
+        <Link href="/home">
           <a>
             <img src="/585f9333cb11b227491c3581.png"></img>
           </a>
@@ -108,12 +108,18 @@ export default function Layout({ children }) {
                 return (
                   <div key={element.name} className="col-3">
                     <div className="card">
-                      <img
-                        className="card-img-top"
-                        style={{ height: "10rem" }}
-                        src={`${element.thumbnail.path}.jpg`}
-                        alt="Card image cap"
-                      />
+                      {element.thumbnail.path.split("/")[9] ===
+                      "image_not_available.jpg" ? (
+                        <img src="/7z6qt753qe031.webp"></img>
+                      ) : (
+                        <img
+                          className="card-img-top"
+                          style={{ height: "12rem" }}
+                          src={`${element.thumbnail.path}.jpg`}
+                          alt="Card image cap"
+                        ></img>
+                      )}
+
                       <div className="card-body">
                         <h5 className="card-title">{element.name}</h5>
                       </div>
@@ -137,7 +143,7 @@ export default function Layout({ children }) {
                     <div className="card">
                       <img
                         className="card-img-top"
-                        style={{ height: "10rem" }}
+                        style={{ height: "12rem" }}
                         src={`${element.thumbnail.path}.jpg`}
                         alt="Card image cap"
                       />
@@ -164,7 +170,7 @@ export default function Layout({ children }) {
                     <div className="card">
                       <img
                         className="card-img-top"
-                        style={{ height: "10rem" }}
+                        style={{ height: "12rem" }}
                         src={`${element.thumbnail.path}.jpg`}
                         alt="Card image cap"
                       />
@@ -200,7 +206,7 @@ export default function Layout({ children }) {
                     <div className="card">
                       <img
                         className="card-img-top"
-                        style={{ height: "10rem" }}
+                        style={{ height: "12rem" }}
                         src={`${element.thumbnail.path}.jpg`}
                         alt="Card image cap"
                       />
