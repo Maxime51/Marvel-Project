@@ -12,17 +12,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     page = parseInt(context.query.page.toString())
   }
 
-  const time = Number(new Date());
-  const hash = md5(time + `${process.env.REACT_APP_MARVEL_PRIVATE_KEY}` + `${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`);
+  const response = await fetch(`http://localhost:3000/api/call/characters?page=${page}`)
+  const result = await response.json();
 
-const response = await fetch(
-      `https://gateway.marvel.com/v1/public/characters?ts=${time}&apikey=${process.env.REACT_APP_MARVEL_PUBLIC_KEY}&hash=${hash}&limit=100&offset=${(page - 1) * 100}`
-    )
-      .then((data) => data.json())
-      .then((response) => response.data.results);
   return {
     props: {
-      data: response,
+      data: result,
       pageSelected : page
     },
   }
@@ -30,14 +25,15 @@ const response = await fetch(
 
 
 export default function Characters({data,pageSelected}) {
-
   return <>
     <Link href={`/characters?page=${pageSelected - 1}`}><a> Back </a></Link>
     <Link href={`/characters?page=${pageSelected + 1}`}><a> Next </a></Link>
-    <div className="container">
-      {data.map((character) => {
-        return <CardCharactersPage imgCard={`${character.thumbnail.path}.jpg`} nameCard={character.name} />
+    <div className="container-fluid">
+      <div className="row">
+      {data.data.map((character) => {
+        return <CardCharactersPage key={character.id} imgCard={`${character.thumbnail.path}`} nameCard={character.name} />
       })}
+      </div>
     </div>
   </>;
 }
