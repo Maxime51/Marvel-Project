@@ -1,7 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { GetServerSideProps } from "next";
+import md5 from "md5";
 
-export default function Layout({ children, data }): JSX.Element {
+export default function Layout({ children }) {
+  const [dataCharacters, setdataCharacters] = useState([]);
+  const [dataComics, setdataComics] = useState([]);
+  const [dataEvents, setdataEvents] = useState([]);
+  const [dataCreators, setdataCreators] = useState([]);
+  const [dataStories, setdataStories] = useState([]);
+  const [dataSeries, setdataSeries] = useState([]);
+
+
+  useEffect(() => {
+    getComics()
+    getCharaters()
+    getEvents()
+    getCreators()
+    getStories()
+    getSeries()
+  }, [])
+
+  async function getCharaters() {
+    const result = await fetch(`/api/call/characters?random=true`).then((response) => response.json());
+    const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataCharacters(data)
+  }
+   async function getComics() {
+    const result = await fetch(`/api/call/comics?random=true`).then((response)=>response.json());
+    const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataComics(data)
+
+   }
+   async function getEvents() {
+    const result = await fetch(`/api/call/events?random=true`).then((response)=>response.json());
+    const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataEvents(data)
+   }
+   async function getCreators() {
+    const result = await fetch(`/api/call/creators?random=true`).then((response)=>response.json());
+   const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataCreators(data)
+   }
+   async function getSeries() {
+    const result = await fetch(`/api/call/series?random=true`).then((response)=>response.json());
+    const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataSeries(data)
+   }
+   async function getStories() {
+    const result = await fetch(`/api/call/stories?random=true`).then((response)=>response.json());
+   const data = [];
+    for (let index = 0; index < 4; index++) {
+      const random = Math.floor(Math.random() * 100);
+      data.push(result.data[random]);
+    }
+    setdataStories(data)
+  }
+
   return (
     <div>
       <div className="fakenav">
@@ -14,15 +89,21 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/characters">
               <a>All Characters</a>
             </Link>
-            <div className="card">
-              <img className="card-img-top" src="..." alt="Card image cap" />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
+            <div className="row">
+              {dataCharacters.map((element)=> {
+                return (
+                  <div key={element.name} className="col-3">
+                <div className="card">
+                  <img className="card-img-top" style={{height: "10rem"}} src={`${element.thumbnail.path}.jpg`} alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{element.name}</h5>
+                    <p className="card-text">
+                      {element.description}
+                    </p>
+                  </div>
+                </div>
+              </div>);
+              })}
             </div>
           </div>
         </div>
@@ -32,6 +113,22 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/comics">
               <a>All Comics</a>
             </Link>
+            <div className="row">
+              {dataComics.map((element)=> {
+                return (
+                  <div key={element.title} className="col-3">
+                <div className="card">
+                  <img className="card-img-top" style={{height: "10rem"}} src={`${element.thumbnail.path}.jpg`} alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{element.title}</h5>
+                    <p className="card-text">
+                      {element.variantDescription}
+                    </p>
+                  </div>
+                </div>
+              </div>);
+              })}
+            </div>
           </div>
         </div>
         <div className="dropdown">
@@ -40,6 +137,19 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/creators">
               <a>All Creators</a>
             </Link>
+            <div className="row">
+              {dataCreators.map((element)=> {
+                return (
+                  <div key={element.firstName} className="col-3">
+                <div className="card">
+                  <img className="card-img-top" style={{height: "10rem"}} src={`${element.thumbnail.path}.jpg`} alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{element.firstName}</h5>
+                  </div>
+                </div>
+              </div>);
+              })}
+            </div>
           </div>
         </div>
         <div className="dropdown">
@@ -48,6 +158,10 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/events">
               <a>All Events</a>
             </Link>
+            <div className="row">
+
+
+            </div>
           </div>
         </div>
         <div className="dropdown">
@@ -56,6 +170,22 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/series">
               <a>All Series</a>
             </Link>
+            <div className="row">
+              {dataSeries.map((element)=> {
+                return (
+                  <div key={element.title} className="col-3">
+                <div className="card">
+                  <img className="card-img-top" style={{height: "10rem"}} src={`${element.thumbnail.path}.jpg`} alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{element.title}</h5>
+                    <p className="card-text">
+                      {element.description}
+                    </p>
+                  </div>
+                </div>
+              </div>);
+              })}
+            </div>
           </div>
         </div>
         <div className="dropdown">
@@ -64,6 +194,9 @@ export default function Layout({ children, data }): JSX.Element {
             <Link href="/stories">
               <a>All Stories</a>
             </Link>
+            <div className="row">
+
+            </div>
           </div>
         </div>
       </div>

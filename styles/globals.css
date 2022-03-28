@@ -84,7 +84,7 @@ video {
 .dropdown-content {
   display: none;
   position: absolute;
-
+  width: 50rem;
   height: 20rem;
   left: 50%;
   right: auto;
@@ -122,3 +122,4 @@ video {
   background-color: white;
   color: #333;
 }
+
