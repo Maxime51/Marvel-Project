@@ -54,36 +54,71 @@ video {
   justify-content: center;
 }
 .fakenav img {
-  width: 8rem;
-  height: 4rem;
+  width: 10rem;
+  height: 4.3rem;
+  padding-bottom: 0.1rem;
 }
 .navbar {
-  padding-bottom: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(26, 29, 41);
-  width: 8rem;
-  height: 50rem;
+}
+.dropbtn {
+  background-color: rgb(26, 29, 41);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+
+  height: 20rem;
+  left: 50%;
+  right: auto;
+
+  text-align: center;
+  transform: translate(-50%, 0);
+  background-color: #f9f9f9;
+
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  color: red;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
   text-decoration: none;
+  display: flex;
 }
-.navbar a {
-  background-size: auto;
-  line-height: 5rem;
+
+.dropdown-content a:hover {
+  background-color: red;
   color: white;
 }
-.navbar a:hover {
-  padding-left: 0.2rem;
-  padding-right: 0.1rem;
-  margin-right: O.5rem;
-  box-shadow: 10px 5px 5px white;
-  color: white;
-  background-size: 8rem;
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
-.col-2 {
-  padding-left: 0;
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(26, 29, 41);
 }
-.col-6 {
-  padding-left: 4rem;
-}
-.CharactersContent img {
-  width: 10rem;
-  height: 10rem;
+.dropdown-content .card {
+  background-color: white;
+  color: #333;
 }

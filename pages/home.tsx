@@ -41,57 +41,6 @@ export default function home({ data }): JSX.Element {
 
   return (
     <Layout>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-2">
-            <nav className="navbar">
-              <div className="container-fluid">
-                <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Characters
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Comics
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Creators
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Events
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Series
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Stories
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-          <div className="col-6">
-            <div className="CharactersContainer">
-              <div className="CharactersContent">
-                {allData.map((element: any) => {
-                  return <img src={`${element.thumbnail.path}.jpg`}></img>;
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div></div>
     </Layout>
   );
