@@ -25,11 +25,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/characters": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/characters.js"
-    ],
     "/characters/[idCharacter]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
