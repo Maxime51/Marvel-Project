@@ -85,7 +85,7 @@ video {
   display: none;
   position: absolute;
   width: 50rem;
-  height: 20rem;
+  height: 25rem;
   left: 50%;
   right: auto;
 
@@ -121,5 +121,50 @@ video {
 .dropdown-content .card {
   background-color: white;
   color: #333;
+  width: 8rem;
 }
 
+.row {
+  margin-left: 0.1rem;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+
+  width: 49.8rem;
+  height: 22rem;
+  font-size: small;
+}
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 10rem;
+  background-color: #333;
+}
+.card-title {
+  font-size: 1rem;
+}
+.card-body:hover {
+  transform: scaleX(1);
+  background-color: red;
+  transition: all 0.2s linear;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  object-position: top center;
+}
+.card-body:after {
+  border-color: none;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: white;
+  border-style: solid;
+  border-top-color: transparent;
+  border-width: 12px 12px 0 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: auto;
+  z-index: 40;
+}
