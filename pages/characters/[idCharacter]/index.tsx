@@ -4,6 +4,7 @@ import ComicsForCharacterDetail from '../../../components/ComicsForCharacterDeta
 import EventForCharacterDetail from '../../../components/EventForCharacterDetail';
 
 import Layout from '../../../components/Layout';
+import StoriesForCharactersDetails from '../../../components/StoriesForCharactersDetails';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log(context.params.idCharacter)
@@ -54,6 +55,8 @@ export default function CharacterDetails({data}): JSX.Element {
         })}
       </div>
       </section>
+      <br></br>
+
     </div>
   </Layout>;
 }
